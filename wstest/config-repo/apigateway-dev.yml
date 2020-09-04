@@ -1,0 +1,23 @@
+ server:
+   port: 80
+zuul:
+  routes:
+    usermanage:
+      path: /getuserlist/**
+      serviceId: USERMANAGE
+    activitymanage:
+      path: /getactivitylist/**
+      serviceId: ACTIVITYMANAGE
+    authmanage:
+      path: /login/**
+      serviceId: AUTHMANAGE
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
